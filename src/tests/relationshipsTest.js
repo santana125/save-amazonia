@@ -30,7 +30,7 @@ Post.create({
 
 Like.create({
   userId: 1,
-  postId: 13
+  postId: 1
 })
   .then(like => {
     console.log(`User ${like.userId} liked ${like.postId}`)

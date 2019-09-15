@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const User = require('../models').User;
 
 module.exports = {
@@ -37,7 +38,12 @@ module.exports = {
     bcrypt.hash(password, 10, async function(err, hash) {
       newUser.password = hash;
       await newUser.save()
-        .then(() => {return res.status(200).json({message: "Success!"})})
+        .then(() => {
+            const token = jwt.sign({ id: newUser.id }, "secret", {
+					    expiresIn:1000,
+            });
+              return res.json({message: `Bearer ${token}`});
+        })
         .catch(err => {return res.status(400).json({error: "Error while trying to register user."})});
     });
 
