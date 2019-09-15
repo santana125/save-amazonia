@@ -6,6 +6,7 @@
   "author": "Gustavo Santana",
   "license": "MIT",
   "scripts": {
+    "start": "node src/app.js",
     "dev": "nodemon src/app.js"
   },
   "devDependencies": {
