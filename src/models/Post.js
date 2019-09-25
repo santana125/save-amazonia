@@ -15,9 +15,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    likes: {
-      type: DataTypes.INTEGER,
-    },
     lat: {
       type: DataTypes.DOUBLE,
       allowNull: false,
