@@ -9,8 +9,8 @@ const crypto = require('crypto');
 const multerConfig = {
     dest: path.resolve(__dirname, '..', '..', 'public', 'profile_pic' ),
     storage: multer.diskStorage({
-      destinatio: (req, file, cb) => {
-        cb(null, path.resolve(__dirname, '..', '..', 'public', 'profile_pic' ))
+      destination: (req, file, cb) => {
+        cb(null, path.resolve(__dirname, '..', '..', 'public', 'profile_pic' ));
       },
       filename: (req, file, cb) => {
         crypto.randomBytes(16, (err, hash) => {
@@ -19,8 +19,7 @@ const multerConfig = {
           const fileName = `${hash.toString('hex')}_${nowDate}`;
           cb(null, fileName);
         })
-      }
-
+      },
     }),
     limits: {
       size: 4 * 1024 * 1024
@@ -32,7 +31,7 @@ const multerConfig = {
         "image/jpeg",
       ];
 
-      if (allowedMimes.includes(file.mimeType)){
+      if (allowedMimes.includes(file.mimetype)){
         cb(null, true);
       } else {
         cb(new Error('Invalid File'));
