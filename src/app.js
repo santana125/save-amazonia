@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 const postRoutes = require('./routes/posts');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
-console.log(process.env);
+const path = require('path');
 
 const db = require('./config/database');
 
@@ -23,7 +23,7 @@ db
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('../public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(postRoutes)
 app.use(authRoutes)
 app.use(userRoutes)
