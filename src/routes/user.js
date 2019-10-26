@@ -26,11 +26,11 @@ const multerConfig = {
       size: 4 * 1024 * 1024
     },
     fileFilter: (req, file, cb) => {
-      allowedMimes: {
+      allowedMimes: [
         'image/png',
         'image/jpg',
         'image/jpeg',
-      }
+      ];
       allowedMimes.includes(file.mimeType) ?
         cb(null, true)
       :
