@@ -7,11 +7,11 @@ const path = require('path');
 const crypto = require('crypto');
 
 const multerConfig = {
-    dest: path.resolve(__dirname, '..', '..', 'public', 'profile_pic' );
+    dest: path.resolve(__dirname, '..', '..', 'public', 'profile_pic' ),
     storage: multer.diskStorage({
       destinatio: (req, file, cb) => {
-        cb(null, path.resolve(__dirname, '..', '..', 'public', 'profile_pic' ));
-      }
+        cb(null, path.resolve(__dirname, '..', '..', 'public', 'profile_pic' ))
+      },
       filename: (req, file, cb) => {
         crypto.randomBytes(16, (err, hash) => {
           if(err) cb(err);
