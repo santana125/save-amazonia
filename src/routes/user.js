@@ -15,7 +15,7 @@ const multerConfig = {
       filename: (req, file, cb) => {
         crypto.randomBytes(16, (err, hash) => {
           if(err) cb(err);
-          const nowDate = new Date.now();
+          const nowDate = Date.now();
           const fileName = `${hash.toString('hex')}_${nowDate}`;
           cb(null, fileName);
         })
