@@ -27,14 +27,16 @@ const multerConfig = {
     },
     fileFilter: (req, file, cb) => {
       const allowedMimes = [
-        'image/png',
-        'image/jpg',
-        'image/jpeg',
+        "image/png",
+        "image/jpg",
+        "image/jpeg",
       ];
-      allowedMimes.includes(file.mimeType) ?
-        cb(null, true)
-      :
-        cb(new Error('Invalid File'))
+
+      if (allowedMimes.includes(file.mimeType)){
+        cb(null, true);
+      } else {
+        cb(new Error('Invalid File'));
+      }
     },
 
 }
