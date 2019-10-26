@@ -49,10 +49,7 @@ module.exports = {
 
   },
   async changeProfilePic(req, res) {
-    const storage = multer.diskStorage({
-      destination: '../public/profile_pic',
-    })
-    console.log(req.file);
+    console.log(req.file.name);
     return res.status(200).json({message: "Amazing"});
   }
 
