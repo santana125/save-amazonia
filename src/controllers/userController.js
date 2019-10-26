@@ -2,10 +2,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models').User;
 
+
 module.exports = {
   async store(req, res){
-    const {username, name, email, city, profile_pic,password, password2} = req.body;
-    
+    const {username, name, email, city, password, password2} = req.body;
     //Verificando se dados basicos foram preenchidos
     if(!username)
       return res.status(400).json({message: "Username is missing."});
@@ -47,6 +47,13 @@ module.exports = {
         .catch(err => {return res.status(400).json({error: "Error while trying to register user."})});
     });
 
+  },
+  async changeProfilePic(req, res) {
+    console.log(req.file);
+    return res.status(200).json({message: "Amazing"});
+    const storage = multer.diskStorage({
+      destination: '../public/profile_pic',
+    })
   }
 
 }
