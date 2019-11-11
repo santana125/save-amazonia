@@ -33,7 +33,7 @@ module.exports = {
     userVerify = await User.findOne({where: {username}});
     if (userVerify)
       return res.status(400).json({message: "Username is in use."});
-    const newUser = new User({username, name, email, city, profile_pic, password});
+    const newUser = new User({username, name, email, city, password});
 
     bcrypt.hash(password, 10, async function(err, hash) {
       newUser.password = hash;
@@ -49,8 +49,11 @@ module.exports = {
 
   },
   async changeProfilePic(req, res) {
-    console.log(req.file.name);
-    return res.status(200).json({message: "Amazing"});
+    const user_id = req.user_id
+    let user = await User.findOne({_id: user_id})
+    user.profile_pic = req.file.url
+    user.save()
+    return res.status(200).json({message: user.profile_pic});
   }
 
 }

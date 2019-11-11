@@ -20,12 +20,8 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      lat: {
-        type: Sequelize.DOUBLE,
-        allowNull: false,
-      },
-      lon: {
-        type: Sequelize.DOUBLE,
+      city: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       userId:{
@@ -38,7 +34,8 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        default: Date.now
       },
       updatedAt: {
         allowNull: false,

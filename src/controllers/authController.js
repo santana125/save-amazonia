@@ -15,7 +15,7 @@ module.exports = {
           const matchPassword = await bcrypt.compare(password, user.password);
           if (matchPassword) {
             const token = jwt.sign({ id: user.id }, "secret", {
-					    expiresIn:1000,
+					    expiresIn:9999999,
 				    });
               return res.json({message: `Bearer ${token}`});
           }else{

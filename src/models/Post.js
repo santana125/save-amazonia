@@ -15,18 +15,31 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lat: {
-      type: DataTypes.DOUBLE,
-      allowNull: false,
-    },
-    lon: {
-      type: DataTypes.DOUBLE,
+    city: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    likes: {
+      type: DataTypes.INTEGER,
+      default: 0,
+    },
+    isGood: {
+      type: DataTypes.BOOLEAN,
+      default: true,
+    },
+    createdAt: {
+      allowNull: false,
+      type: DataTypes.DATE,
+      default: Date.now
+    },
+    updatedAt: {
+      allowNull: false,
+      type: DataTypes.DATE
+    }
   }, {});
     Post.associate = function(models) {
       Post.belongsTo(models.User);

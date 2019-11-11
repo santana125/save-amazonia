@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "BataaL3QOY52lTV",
-    "password": "T05A2NpVMZ",
-    "database": "L3QOY52lTV",
-    "host": "remotemysql.com",
+    "username": "aps_user",
+    "password": "secretpass",
+    "database": "saveamazonia",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
